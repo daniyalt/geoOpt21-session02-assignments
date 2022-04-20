@@ -26,7 +26,8 @@ def getNodes(G, layout = 0):
     elif layout == 1 : lay =  nx.circular_layout(G)
     elif layout == 2 : lay =  nx.random_layout(G)
     elif layout == 3 : lay =  nx.spectral_layout(G)
-    elif layout == 4 : lay =  nx.spiral_layout(G)
+    elif layout == 4 : lay =  nx.spring_layout(G)
+    elif layout == 5 : lay =  nx.spiral_layout(G)
     else: lay = nx.planar_layout(G)
 
     nodes = []
@@ -43,7 +44,8 @@ def getEdges(G, layout = 0):
     elif layout == 1 : lay =  nx.circular_layout(G)
     elif layout == 2 : lay =  nx.random_layout(G)
     elif layout == 3 : lay =  nx.spectral_layout(G)
-    elif layout == 4 : lay =  nx.spiral_layout(G)
+    elif layout == 4 : lay =  nx.spring_layout(G)
+    elif layout == 5 : lay =  nx.spiral_layout(G)
     else: lay = nx.planar_layout(G)
 
     edges = []
@@ -59,7 +61,6 @@ def getEdges(G, layout = 0):
 """
 G = createGridGraph(3,3)
 GW = addRandomWeigrhs(G)
-
 nodes = getNodes(G)
 edges = getEdges(G)
 """

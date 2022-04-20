@@ -1,9 +1,7 @@
-from distutils.command.install_lib import install_lib
 from flask import Flask
 import ghhops_server as hs
 import rhino3dm as rg
 import geometry as geo
-import numpy as np
 
 app = Flask(__name__)
 hops = hs.Hops(app)
@@ -16,14 +14,11 @@ hops = hs.Hops(app)
     inputs=[
         hs.HopsInteger("Count X", "X", "Number of node in X", hs.HopsParamAccess.ITEM, default= 1),
         hs.HopsInteger("Count Y", "Y", "Number of node in Y", hs.HopsParamAccess.ITEM, default= 1),
-        hs.HopsInteger("Layout", "L", "Layout to order Nodes", hs.HopsParamAccess.ITEM, default= 0),
-
-
+        hs.HopsInteger("Layout", "L", "Layout to order Nodes", hs.HopsParamAccess.ITEM, default= 2),
     ],
     outputs=[
        hs.HopsPoint("Nodes","N","List of Nodes ", hs.HopsParamAccess.LIST),
        hs.HopsCurve("Edges","E","List of Edges ", hs.HopsParamAccess.LIST)
-
     ]
 )
 def createGraph(X, Y, layout):
